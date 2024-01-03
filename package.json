@@ -53,13 +53,13 @@
   },
   "author": "brunolipe-a,nulix",
   "license": "MIT",
-  "homepage": "https://github.com/nulix/browsershot#readme",
+  "homepage": "https://github.com/nulix-dev/browsershot#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nulix/browsershot.git"
+    "url": "git+https://github.com/nulix-dev/browsershot.git"
   },
   "bugs": {
-    "url": "https://github.com/nulix/browsershot/issues"
+    "url": "https://github.com/nulix-dev/browsershot/issues"
   },
   "keywords": [],
   "types": "./build/index.d.ts",
