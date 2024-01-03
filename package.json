@@ -28,7 +28,8 @@
     "version": "npm run build",
     "prepublishOnly": "npm run build",
     "lint": "eslint . --ext=.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@adonisjs/eslint-config": "^1.1.8",
@@ -50,7 +51,6 @@
     "tsup": "^8.0.1",
     "typescript": "5.2.2"
   },
-  "dependencies": {},
   "author": "brunolipe-a,nulix",
   "license": "MIT",
   "homepage": "https://github.com/nulix/browsershot#readme",
