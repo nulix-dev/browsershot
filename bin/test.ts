@@ -1,5 +1,30 @@
-import { assert } from '@japa/assert'
+import path from 'node:path'
+import { WriteFileOptions } from 'node:fs'
+
+import mime from 'mime-types'
+
+import { Assert, assert } from '@japa/assert'
+import { expect } from '@japa/expect'
+import { fileSystem, FileSystem } from '@japa/file-system'
 import { processCLIArgs, configure, run } from '@japa/runner'
+
+FileSystem.macro(
+  'createPath',
+  async function (
+    this: FileSystem,
+    filePath: string,
+    contents?: string,
+    options?: WriteFileOptions
+  ) {
+    await this.create(filePath, contents || '', options)
+
+    return path.join(this.basePath, filePath)
+  }
+)
+
+Assert.macro('mimeType', async function (this: Assert, filePath: string, mimeType: string) {
+  this.equal(mime.lookup(filePath), mimeType)
+})
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +51,7 @@ configure({
       files: ['tests/integration/**/*.spec(.js|.ts)'],
     },
   ],
-  plugins: [assert()],
+  plugins: [assert(), expect(), fileSystem()],
 })
 
 /*

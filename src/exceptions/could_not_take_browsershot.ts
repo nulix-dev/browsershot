@@ -1,5 +1,5 @@
 export class CouldNotTakeBrowsershot extends Error {
-  static chromeOutputEmpty(screenShotPath: string, output: string, command = []) {
+  static chromeOutputEmpty(screenShotPath: string, output: string, command = {}) {
     const jsonCommand = JSON.stringify(command)
 
     const message = `<<<CONSOLE
