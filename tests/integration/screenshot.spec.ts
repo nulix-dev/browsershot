@@ -107,11 +107,10 @@ test.group('Screenshot', () => {
   test('it will connect to remote instance and take screenshot', async ({ fs, assert }) => {
     const instance = Browsershot.url('https://example.com').setRemoteInstance()
 
-    const command = BrowserCommand.screenshot(instance, 'screenshot.png')
+    const command = BrowserCommand.screenshot(instance)
 
     assert.deepInclude(
       {
-        path: 'screenshot.png',
         viewport: {
           width: 800,
           height: 600,
@@ -138,11 +137,10 @@ test.group('Screenshot', () => {
     async ({ fs, assert }) => {
       const instance = Browsershot.url('https://example.com').setRemoteInstance('127.0.0.1', 9999)
 
-      const command = BrowserCommand.screenshot(instance, 'screenshot.png')
+      const command = BrowserCommand.screenshot(instance)
 
       assert.deepInclude(
         {
-          path: 'screenshot.png',
           viewport: {
             width: 800,
             height: 600,
