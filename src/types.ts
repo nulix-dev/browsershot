@@ -122,6 +122,8 @@ export type BrowserCommandOptions = {
   pageFunction?: string
 }
 
+export type ExceptionOutput = { type: 'UnsuccessfulResponse' | 'ElementNotFound'; status?: number }
+
 export type Output = {
   requestsList: RequestList[]
   consoleMessages: ConsoleMessage[]
@@ -129,5 +131,5 @@ export type Output = {
   redirectHistory: RedirectHistory[]
   pageErrors: PageError[]
   result?: string
-  exception?: { type: 'UnsuccessfulResponse' | 'ElementNotFound'; status?: number }
+  exception?: ExceptionOutput
 }

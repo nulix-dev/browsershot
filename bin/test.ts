@@ -41,6 +41,7 @@ Assert.macro('mimeType', async function (this: Assert, filePath: string, mimeTyp
 */
 processCLIArgs(process.argv.slice(2))
 configure({
+  timeout: 5000,
   suites: [
     {
       name: 'unit',

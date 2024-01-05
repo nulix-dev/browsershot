@@ -1,5 +1,6 @@
 import {
   ConsoleMessage,
+  ExceptionOutput,
   FailedRequest,
   Output,
   PageError,
@@ -25,7 +26,7 @@ import {
 export class ChromiumResult {
   protected result: string
 
-  protected exception: string | null
+  protected exception?: ExceptionOutput
 
   protected consoleMessages?: ConsoleMessage[]
 
@@ -39,7 +40,7 @@ export class ChromiumResult {
 
   constructor(output: Output) {
     this.result = output.result || ''
-    this.exception = output.exception || null
+    this.exception = output.exception
     this.consoleMessages = output.consoleMessages
     this.requestsList = output.requestsList
     this.failedRequests = output.failedRequests

@@ -132,7 +132,7 @@ test.group('Browsershot', () => {
 
     expect(output?.getResult()).toContain(expectedContent)
 
-    expect(output?.getException()).toBeNull()
+    expect(output?.getException()).toBeUndefined()
     expect(output?.getConsoleMessages()).toHaveLength(0)
     expect(output?.getFailedRequests()).toHaveLength(0)
     expect(output?.getPageErrors()).toHaveLength(0)
