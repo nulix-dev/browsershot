@@ -16,7 +16,7 @@ Here's a quick example:
 import { Browsershot } from '@nulix/browsershot'
 
 // an image will be saved
-Browsershot.url('https://example.com').save($pathToImage);
+Browsershot.url('https://example.com').save(pathToImage);
 ```
 
 It will save a pdf if the path passed to the `save` method has a `pdf` extension.
@@ -58,7 +58,7 @@ for (const request as requests) {
 To use Chrome's new [headless mode](https://developers.google.com/web/updates/2017/04/headless-chrome) pass the `newHeadless` method:
 
 ```ts
-Browsershot.url('https://example.com').newHeadless().save($pathToImage);
+Browsershot.url('https://example.com').newHeadless().save(pathToImage);
 ```
 
 ## Documentation
