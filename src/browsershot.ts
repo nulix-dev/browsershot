@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import tmp from 'tmp'
-import { setProperty } from 'dot-prop'
+import { dset } from 'dset'
 
 import { BrowserCommandOptions, PageSelect, PageType } from './types.js'
 import { isEmpty } from './utils.js'
@@ -453,7 +453,7 @@ export class Browsershot {
   }
 
   setOption(key: string, value: any) {
-    setProperty(this.additionalOptions, key, value)
+    dset(this.additionalOptions, key, value)
 
     return this
   }

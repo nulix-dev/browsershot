@@ -6,7 +6,7 @@ import mime from 'mime-types'
 import { Assert, assert } from '@japa/assert'
 import { expect } from '@japa/expect'
 import { fileSystem, FileSystem } from '@japa/file-system'
-import { processCLIArgs, configure, run } from '@japa/runner'
+import { processCliArgs, configure, run } from '@japa/runner'
 
 FileSystem.macro(
   'createPath',
@@ -39,8 +39,9 @@ Assert.macro('mimeType', async function (this: Assert, filePath: string, mimeTyp
 |
 | Please consult japa.dev/runner-config for the config docs.
 */
-processCLIArgs(process.argv.slice(2))
+
 configure({
+  ...processCliArgs(process.argv.slice(2)),
   timeout: 15000,
   suites: [
     {

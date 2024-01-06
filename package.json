@@ -5,15 +5,19 @@
   "engines": {
     "node": ">=18.16.0"
   },
-  "main": "build/index.js",
-  "type": "module",
   "files": [
     "build",
     "!build/bin"
   ],
+  "main": "./build/index.js",
+  "module": "./build/index.mjs",
+  "types": "./build/index.d.ts",
   "exports": {
-    ".": "./build/index.js",
-    "./types": "./build/src/types.js"
+    ".": {
+      "require": "./build/index.js",
+      "import": "./build/index.mjs",
+      "types": "./build/index.d.ts"
+    }
   },
   "scripts": {
     "pretest": "npm run lint",
@@ -22,7 +26,7 @@
     "clean": "del-cli build",
     "typecheck": "tsc --noEmit",
     "precompile": "npm run lint && npm run clean",
-    "compile": "tsup-node && tsc --emitDeclarationOnly --declaration",
+    "compile": "tsup-node --format esm,cjs && tsc --emitDeclarationOnly --declaration",
     "build": "npm run compile",
     "release": "np",
     "version": "npm run build",
@@ -37,10 +41,10 @@
     "@adonisjs/tsconfig": "^1.1.8",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
-    "@japa/assert": "^2.0.1",
-    "@japa/expect": "^3.0.1",
-    "@japa/file-system": "^2.1.1",
-    "@japa/runner": "^3.0.5",
+    "@japa/assert": "1.4.1",
+    "@japa/expect": "2.0.2",
+    "@japa/file-system": "1.1.0",
+    "@japa/runner": "2.5.1",
     "@swc/core": "^1.3.99",
     "@types/mime-types": "^2.1.4",
     "@types/node": "^20.9.3",
@@ -72,7 +76,6 @@
     "headless",
     "chrome"
   ],
-  "types": "./build/index.d.ts",
   "eslintConfig": {
     "extends": "@adonisjs/eslint-config/package"
   },
@@ -113,13 +116,12 @@
     ],
     "outDir": "./build",
     "clean": true,
-    "format": "esm",
     "dts": false,
     "sourcemap": true,
     "target": "esnext"
   },
   "dependencies": {
-    "dot-prop": "^8.0.2",
+    "dset": "^3.1.3",
     "mime-types": "^2.1.35",
     "puppeteer": "^21.7.0",
     "tmp": "^0.2.1"

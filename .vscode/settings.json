@@ -3,6 +3,7 @@
     "autoprefix",
     "browserless",
     "Browsershot",
+    "dset",
     "googletagmanager",
     "networkidle",
     "pageerror"
