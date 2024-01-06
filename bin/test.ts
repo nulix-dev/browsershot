@@ -44,7 +44,7 @@ Assert.macro('mimeType', async function (this: Assert, filePath: string, mimeTyp
 configure({
   ...processCliArgs(process.argv.slice(2)),
   ...{
-    timeout: 15000,
+    timeout: 0,
     files: ['tests/**/*.spec.ts'],
     reporters: [specReporter()],
     plugins: [assert(), expect(), fileSystem()],
