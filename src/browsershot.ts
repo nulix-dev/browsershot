@@ -3,23 +3,23 @@ import path from 'node:path'
 import tmp from 'tmp'
 import { dset } from 'dset'
 
-import { BrowserCommandOptions, PageSelect, PageType } from './types.js'
-import { isEmpty } from './utils.js'
+import { BrowserCommandOptions, PageSelect, PageType } from './types'
+import { isEmpty } from './utils'
 
-import { FileUrlNotAllowed } from './exceptions/file_url_not_allowed.js'
-import { HtmlIsNotAllowedToContainFile } from './exceptions/html_is_not_allowed_to_contain_file.js'
-import { FileDoesNotExistException } from './exceptions/file_does_not_exist.js'
-import { CouldNotTakeBrowsershot } from './exceptions/could_not_take_browsershot.js'
+import { FileUrlNotAllowed } from './exceptions/file_url_not_allowed'
+import { HtmlIsNotAllowedToContainFile } from './exceptions/html_is_not_allowed_to_contain_file'
+import { FileDoesNotExistException } from './exceptions/file_does_not_exist'
+import { CouldNotTakeBrowsershot } from './exceptions/could_not_take_browsershot'
 
-import { Polling } from './enums/polling.js'
-import { Unit } from './enums/unit.js'
+import { Polling } from './enums/polling'
+import { Unit } from './enums/unit'
 
-import { ChromiumResult } from './chromium_result.js'
+import { ChromiumResult } from './chromium_result'
 import { KnownDevices, MouseButton, Protocol, WaitForSelectorOptions } from 'puppeteer'
-import { BrowserCommand } from './browser_command.js'
-import { Browser } from './browser.js'
-import { ElementNotFound } from './exceptions/element_not_found.js'
-import { UnsuccessfulResponse } from './exceptions/unsuccessful_response.js'
+import { BrowserCommand } from './browser_command'
+import { Browser } from './browser'
+import { ElementNotFound } from './exceptions/element_not_found'
+import { UnsuccessfulResponse } from './exceptions/unsuccessful_response'
 
 export class Browsershot {
   _taggedPdf = false

@@ -1,20 +1,32 @@
 import { test } from '@japa/runner'
 
-import { FileUrlNotAllowed } from '../../src/exceptions/file_url_not_allowed.js'
-import { HtmlIsNotAllowedToContainFile } from '../../src/exceptions/html_is_not_allowed_to_contain_file.js'
-import { CouldNotTakeBrowsershot } from '../../src/exceptions/could_not_take_browsershot.js'
-import { ElementNotFound } from '../../src/exceptions/element_not_found.js'
-import { UnsuccessfulResponse } from '../../src/exceptions/unsuccessful_response.js'
-import { Browsershot } from '../../index.js'
+import { FileUrlNotAllowed } from '../../src/exceptions/file_url_not_allowed'
+import { HtmlIsNotAllowedToContainFile } from '../../src/exceptions/html_is_not_allowed_to_contain_file'
+import { CouldNotTakeBrowsershot } from '../../src/exceptions/could_not_take_browsershot'
+import { ElementNotFound } from '../../src/exceptions/element_not_found'
+import { UnsuccessfulResponse } from '../../src/exceptions/unsuccessful_response'
+import { Browsershot } from '../../index'
 
 test.group('Exceptions', () => {
-  test('it will not allow a file url', () => {
-    Browsershot.url('file://test')
-  }).throws(new FileUrlNotAllowed().message)
+  test('it will not allow a file url', ({ assert }) => {
+    assert.plan(1)
 
-  test('it will not allow html to contain file://', () => {
-    Browsershot.html('<h1><img src="file://" /></h1>')
-  }).throws(new HtmlIsNotAllowedToContainFile().message)
+    try {
+      Browsershot.url('file://test')
+    } catch (error) {
+      assert.instanceOf(error, FileUrlNotAllowed)
+    }
+  })
+
+  test('it will not allow html to contain file://', ({ assert }) => {
+    assert.plan(1)
+
+    try {
+      Browsershot.html('<h1><img src="file://" /></h1>')
+    } catch (error) {
+      assert.instanceOf(error, HtmlIsNotAllowedToContainFile)
+    }
+  })
 
   test('it cannot save without an extension', async ({ fs, expect }) => {
     const targetPath = await fs.createPath('testScreenshot')

@@ -1,7 +1,7 @@
 import { test } from '@japa/runner'
 
-import { Browsershot } from '../../index.js'
-import { ChromiumResult } from '../../src/chromium_result.js'
+import { Browsershot } from '../../index'
+import { ChromiumResult } from '../../src/chromium_result'
 
 test.group('Browsershot', () => {
   test('it can get the requests list', async ({ expect, assert }) => {

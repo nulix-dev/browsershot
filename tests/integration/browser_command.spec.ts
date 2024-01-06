@@ -1,6 +1,6 @@
 import { test } from '@japa/runner'
-import { Browsershot, Unit } from '../../index.js'
-import { BrowserCommand } from '../../src/browser_command.js'
+import { Browsershot, Unit } from '../../index'
+import { BrowserCommand } from '../../src/browser_command'
 
 test.group('BrowserCommand', () => {
   test('it can create a command to generate a screenshot', ({ assert }) => {

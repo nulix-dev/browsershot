@@ -18,9 +18,9 @@ import {
   PageError,
   RedirectHistory,
   RequestList,
-} from './types.js'
+} from './types'
 
-import { BrowserCommand } from './browser_command.js'
+import { BrowserCommand } from './browser_command'
 
 export class Browser {
   protected requestsList: RequestList[] = []

@@ -1,7 +1,7 @@
 import { test } from '@japa/runner'
 
-import { Browsershot } from '../../index.js'
-import { BrowserCommand } from '../../src/browser_command.js'
+import { Browsershot } from '../../index'
+import { BrowserCommand } from '../../src/browser_command'
 
 test.group('Screenshot', () => {
   test('it can take a screenshot', async ({ assert, fs }) => {
@@ -19,7 +19,7 @@ test.group('Screenshot', () => {
     expect(typeof base64 === 'string').toBeTruthy()
   })
 
-  test('can take a screenshot when using pipe', async ({ assert, fs }) => {
+  test('it can take a screenshot when using pipe', async ({ assert, fs }) => {
     const targetPath = await fs.createPath('testScreenshot.png')
 
     await Browsershot.url('https://example.com').usePipe().save(targetPath)
@@ -192,7 +192,7 @@ test.group('Screenshot', () => {
       expect(html).toContain('chrome.browserless.io')
 
       /* Now that we know the domain is online, assert the screenshot.
-       * Although we can't be sure, because Browsershot itself falls back to launching a chromium instance in browser.js
+       * Although we can't be sure, because Browsershot itself falls back to launching a chromium instance in browser
        */
       const output = await instance.screenshot()
 

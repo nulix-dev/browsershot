@@ -1,6 +1,6 @@
-import { Browsershot } from './browsershot.js'
-import { BrowserCommandOptions, PageAction, PageCustomAction } from './types.js'
-import { isEmpty } from './utils.js'
+import { Browsershot } from './browsershot'
+import { BrowserCommandOptions, PageAction, PageCustomAction } from './types'
+import { isEmpty } from './utils'
 
 export class BrowserCommand {
   url: string

@@ -4,6 +4,7 @@ import { WriteFileOptions } from 'node:fs'
 import mime from 'mime-types'
 
 import { Assert, assert } from '@japa/assert'
+import { specReporter } from '@japa/spec-reporter'
 import { expect } from '@japa/expect'
 import { fileSystem, FileSystem } from '@japa/file-system'
 import { processCliArgs, configure, run } from '@japa/runner'
@@ -42,18 +43,13 @@ Assert.macro('mimeType', async function (this: Assert, filePath: string, mimeTyp
 
 configure({
   ...processCliArgs(process.argv.slice(2)),
-  timeout: 15000,
-  suites: [
-    {
-      name: 'unit',
-      files: ['tests/unit/**/*.spec(.js|.ts)'],
-    },
-    {
-      name: 'integration',
-      files: ['tests/integration/**/*.spec(.js|.ts)'],
-    },
-  ],
-  plugins: [assert(), expect(), fileSystem()],
+  ...{
+    timeout: 15000,
+    files: ['tests/**/*.spec.ts'],
+    reporters: [specReporter()],
+    plugins: [assert(), expect(), fileSystem()],
+    importer: (filePath) => import(filePath),
+  },
 })
 
 /*

@@ -1,6 +1,6 @@
 import { test } from '@japa/runner'
 
-import { Browsershot } from '../../index.js'
+import { Browsershot } from '../../index'
 
 test.group('PDF', () => {
   test('it can save a pdf by using the pdf extension', async ({ fs, assert }) => {
