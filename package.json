@@ -65,7 +65,13 @@
   "bugs": {
     "url": "https://github.com/nulix-dev/browsershot/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "screenshot",
+    "pdf",
+    "puppeteer",
+    "headless",
+    "chrome"
+  ],
   "types": "./build/index.d.ts",
   "eslintConfig": {
     "extends": "@adonisjs/eslint-config/package"
