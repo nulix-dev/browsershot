@@ -1,7 +1,7 @@
 {
   "name": "@nulix/browsershot",
   "description": "Convert a webpage to an image or PDF",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "engines": {
     "node": ">=18.16.0"
   },
