@@ -71,7 +71,7 @@ test.group('Browsershot', () => {
   test('it can get the output of a pdf', async ({ assert, fs }) => {
     const output = await Browsershot.url('https://example.com').pdf()
 
-    const filePath = await fs.createPath('example.pdf', output)
+    const filePath = await fs.createPath('example.pdf', output.toString())
 
     assert.mimeType(filePath, 'application/pdf')
   })

@@ -90,7 +90,7 @@ test.group('Screenshot', () => {
   test('it can get the output of a screenshot', async ({ assert, fs }) => {
     const output = await Browsershot.url('https://example.com').screenshot()
 
-    const filePath = await fs.createPath('screenshot.png', output)
+    const filePath = await fs.createPath('screenshot.png', output.toString())
 
     assert.mimeType(filePath, 'image/png')
   })
@@ -128,7 +128,7 @@ test.group('Screenshot', () => {
      */
     const output = await instance.screenshot()
 
-    const filePath = await fs.createPath('screenshot.png', output)
+    const filePath = await fs.createPath('screenshot.png', output.toString())
 
     assert.mimeType(filePath, 'image/png')
   })
@@ -158,7 +158,7 @@ test.group('Screenshot', () => {
        */
       const output = await instance.screenshot()
 
-      const filePath = await fs.createPath('screenshot.png', output)
+      const filePath = await fs.createPath('screenshot.png', output.toString())
 
       assert.mimeType(filePath, 'image/png')
     }
@@ -196,7 +196,7 @@ test.group('Screenshot', () => {
        */
       const output = await instance.screenshot()
 
-      const filePath = await fs.createPath('screenshot.png', output)
+      const filePath = await fs.createPath('screenshot.png', output.toString())
 
       assert.mimeType(filePath, 'image/png')
     })
