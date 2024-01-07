@@ -532,7 +532,7 @@ export class Browsershot {
   async screenshot() {
     const output = await this.base64Screenshot()
 
-    return Buffer.from(output, 'base64').toString('utf-8')
+    return Buffer.from(output, 'base64')
   }
 
   async base64pdf() {
@@ -548,7 +548,7 @@ export class Browsershot {
   async pdf() {
     const output = await this.base64pdf()
 
-    return Buffer.from(output, 'base64').toString('utf-8')
+    return Buffer.from(output, 'base64')
   }
 
   async savePdf(targetPath: string) {
