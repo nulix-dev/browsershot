@@ -1,5 +1,5 @@
 import { test } from '@japa/runner'
-import { Browsershot, Unit } from '../../index'
+import { Browsershot, Format, Unit } from '../../index'
 import { BrowserCommand } from '../../src/browser_command'
 
 test.group('BrowserCommand', () => {
@@ -306,7 +306,7 @@ test.group('BrowserCommand', () => {
       .landscape()
       .margins(10, 20, 30, 40)
       .pages('1-3')
-      .format('a4')
+      .format(Format.A4)
 
     const command = BrowserCommand.pdf(browsershot, 'screenshot.pdf')
 
