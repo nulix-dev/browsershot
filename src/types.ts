@@ -11,6 +11,7 @@ import {
   Viewport,
   WaitForSelectorOptions,
 } from 'puppeteer'
+
 import { Polling } from './enums/polling'
 
 export type ConsoleMessage = {

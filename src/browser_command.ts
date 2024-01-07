@@ -1,6 +1,6 @@
+import { isEmpty } from './utils'
 import { Browsershot } from './browsershot'
 import { BrowserCommandOptions, PageAction, PageCustomAction } from './types'
-import { isEmpty } from './utils'
 
 export class BrowserCommand {
   url: string

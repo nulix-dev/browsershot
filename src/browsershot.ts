@@ -1,25 +1,26 @@
-import fs from 'node:fs'
-import path from 'node:path'
 import tmp from 'tmp'
+import fs from 'node:fs'
 import { dset } from 'dset'
+import path from 'node:path'
 
-import { BrowserCommandOptions, PageSelect, PageType } from './types'
 import { isEmpty } from './utils'
+import { BrowserCommandOptions, PageSelect, PageType } from './types'
 
 import { FileUrlNotAllowed } from './exceptions/file_url_not_allowed'
-import { HtmlIsNotAllowedToContainFile } from './exceptions/html_is_not_allowed_to_contain_file'
 import { FileDoesNotExistException } from './exceptions/file_does_not_exist'
 import { CouldNotTakeBrowsershot } from './exceptions/could_not_take_browsershot'
+import { HtmlIsNotAllowedToContainFile } from './exceptions/html_is_not_allowed_to_contain_file'
 
-import { Polling } from './enums/polling'
 import { Unit } from './enums/unit'
+import { Format } from './enums/format'
+import { Polling } from './enums/polling'
 
-import { ChromiumResult } from './chromium_result'
-import { KnownDevices, MouseButton, Protocol, WaitForSelectorOptions } from 'puppeteer'
-import { BrowserCommand } from './browser_command'
 import { Browser } from './browser'
+import { BrowserCommand } from './browser_command'
+import { ChromiumResult } from './chromium_result'
 import { ElementNotFound } from './exceptions/element_not_found'
 import { UnsuccessfulResponse } from './exceptions/unsuccessful_response'
+import { KnownDevices, MouseButton, Protocol, WaitForSelectorOptions } from 'puppeteer'
 
 export class Browsershot {
   _taggedPdf = false
@@ -293,7 +294,7 @@ export class Browsershot {
   }
 
   // paper format
-  format(format: string) {
+  format(format: Format) {
     return this.setOption('format', format)
   }
 
