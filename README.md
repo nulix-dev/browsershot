@@ -10,6 +10,10 @@
 
 The package can convert a webpage to an image or pdf. The conversion is done behind the scenes by [Puppeteer](https://github.com/GoogleChrome/puppeteer) which controls a headless version of Google Chrome.
 
+```bash
+npm i @nulix/browsershot
+```
+
 Here's a quick example:
 
 ```ts
