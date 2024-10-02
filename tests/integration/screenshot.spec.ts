@@ -109,18 +109,15 @@ test.group('Screenshot', () => {
 
     const command = BrowserCommand.screenshot(instance)
 
-    assert.deepInclude(
-      {
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
-        type: 'png',
-        remoteInstanceUrl: 'http://127.0.0.1:9222',
+    assert.deepInclude(command.options, {
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+      type: 'png',
+      remoteInstanceUrl: 'http://127.0.0.1:9222',
+    })
 
     /*
      * to test the connection, uncomment the following code, and make sure you are running a chrome/chromium instance locally,
@@ -139,18 +136,15 @@ test.group('Screenshot', () => {
 
       const command = BrowserCommand.screenshot(instance)
 
-      assert.deepInclude(
-        {
-          viewport: {
-            width: 800,
-            height: 600,
-          },
-          args: [],
-          type: 'png',
-          remoteInstanceUrl: 'http://127.0.0.1:9999',
+      assert.deepInclude(command.options, {
+        viewport: {
+          width: 800,
+          height: 600,
         },
-        command.options
-      )
+        args: [],
+        type: 'png',
+        remoteInstanceUrl: 'http://127.0.0.1:9999',
+      })
 
       /*
        * to test the connection, uncomment the following code, and make sure you are running a chrome/chromium instance locally,
@@ -172,18 +166,15 @@ test.group('Screenshot', () => {
 
       const command = BrowserCommand.screenshot(instance)
 
-      assert.deepInclude(
-        {
-          viewport: {
-            width: 800,
-            height: 600,
-          },
-          args: [],
-          type: 'png',
-          browserWSEndpoint: 'wss://chrome.browserless.io/',
+      assert.deepInclude(command.options, {
+        viewport: {
+          width: 800,
+          height: 600,
         },
-        command.options
-      )
+        args: [],
+        type: 'png',
+        browserWSEndpoint: 'wss://chrome.browserless.io/',
+      })
 
       // It should be online so mis-use the assetsContains because a 4xx error won't contain the word "browserless".
       const html = await Browsershot.url('https://chrome.browserless.io/json/').bodyHtml()

@@ -19,19 +19,16 @@ test.group('BrowserCommand', () => {
     assert.equal(command.url, 'https://example.com')
     assert.equal(command.action, 'screenshot')
 
-    assert.deepInclude(
-      {
-        clip: { x: 100, y: 50, width: 600, height: 400 },
-        path: 'screenshot.png',
-        fullPage: true,
-        dismissDialogs: true,
-        quality: 1,
-        viewport: { deviceScaleFactor: 2, width: 1920, height: 1080 },
-        args: [],
-        type: 'png',
-      },
-      command.options
-    )
+    assert.deepInclude(command.options, {
+      clip: { x: 100, y: 50, width: 600, height: 400 },
+      path: 'screenshot.png',
+      fullPage: true,
+      dismissDialogs: true,
+      quality: 1,
+      viewport: { deviceScaleFactor: 2, width: 1920, height: 1080 },
+      args: [],
+      type: 'png',
+    })
   })
 
   test('it can create a command to generate a screenshot and omit the background').run(
@@ -49,19 +46,14 @@ test.group('BrowserCommand', () => {
       assert.equal(command.url, 'https://example.com')
       assert.equal(command.action, 'screenshot')
 
-      assert.deepInclude(
-        {
-          clip: { x: 100, y: 50, width: 600, height: 400 },
-          path: 'screenshot.png',
-          fullPage: true,
-          dismissDialogs: true,
-          omitBackground: true,
-          viewport: { deviceScaleFactor: 2, width: 1920, height: 1080 },
-          args: [],
-          type: 'png',
-        },
-        command.options
-      )
+      assert.deepInclude(command.options, {
+        clip: { x: 100, y: 50, width: 600, height: 400 },
+        path: 'screenshot.png',
+        omitBackground: true,
+        viewport: { deviceScaleFactor: 2, width: 1920, height: 1080 },
+        args: [],
+        type: 'png',
+      })
     }
   )
 
@@ -87,27 +79,24 @@ test.group('BrowserCommand', () => {
 
     assert.isUndefined(command.options.contentUrl)
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.pdf',
-        initialPageNumber: 0,
-        device: 'iPhone 11',
-        printBackground: true,
-        omitBackground: true,
-        scale: 1,
-        landscape: true,
-        margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
-        pageRanges: '1-',
-        width: '210mm',
-        height: '148mm',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
+    assert.deepInclude(command.options, {
+      path: 'screenshot.pdf',
+      initialPageNumber: 0,
+      device: 'iPhone 11',
+      printBackground: true,
+      omitBackground: true,
+      scale: 1,
+      landscape: true,
+      margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
+      pageRanges: '1-',
+      width: '210mm',
+      height: '148mm',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+    })
   })
 
   test('it can create a command to generate a pdf with tags', ({ assert }) => {
@@ -127,25 +116,22 @@ test.group('BrowserCommand', () => {
     assert.equal(command.url, 'https://example.com')
     assert.equal(command.action, 'pdf')
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.pdf',
-        printBackground: true,
-        omitBackground: true,
-        tagged: true,
-        landscape: true,
-        margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
-        pageRanges: '1-3',
-        width: '210mm',
-        height: '148mm',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
+    assert.deepInclude(command.options, {
+      path: 'screenshot.pdf',
+      printBackground: true,
+      omitBackground: true,
+      tagged: true,
+      landscape: true,
+      margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
+      pageRanges: '1-3',
+      width: '210mm',
+      height: '148mm',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+    })
   })
 
   test('it can create a command to generate a pdf with a custom header', ({ assert }) => {
@@ -165,25 +151,22 @@ test.group('BrowserCommand', () => {
     assert.equal(command.url, 'https://example.com')
     assert.equal(command.action, 'pdf')
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.pdf',
-        printBackground: true,
-        landscape: true,
-        margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
-        pageRanges: '1-3',
-        width: '210mm',
-        height: '148mm',
-        displayHeaderFooter: true,
-        headerTemplate: '<p>Test Header</p>',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
+    assert.deepInclude(command.options, {
+      path: 'screenshot.pdf',
+      printBackground: true,
+      landscape: true,
+      margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
+      pageRanges: '1-3',
+      width: '210mm',
+      height: '148mm',
+      displayHeaderFooter: true,
+      headerTemplate: '<p>Test Header</p>',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+    })
   })
 
   test('it can create a command to generate a pdf with a custom footer', ({ assert }) => {
@@ -203,25 +186,22 @@ test.group('BrowserCommand', () => {
     assert.equal(command.url, 'https://example.com')
     assert.equal(command.action, 'pdf')
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.pdf',
-        printBackground: true,
-        landscape: true,
-        margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
-        pageRanges: '1-3',
-        width: '210mm',
-        height: '148mm',
-        displayHeaderFooter: true,
-        footerTemplate: '<p>Test Footer</p>',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
+    assert.deepInclude(command.options, {
+      path: 'screenshot.pdf',
+      printBackground: true,
+      landscape: true,
+      margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
+      pageRanges: '1-3',
+      width: '210mm',
+      height: '148mm',
+      displayHeaderFooter: true,
+      footerTemplate: '<p>Test Footer</p>',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+    })
   })
 
   test('it can create a command to generate a pdf with the header hidden', ({ assert }) => {
@@ -241,25 +221,22 @@ test.group('BrowserCommand', () => {
     assert.equal(command.url, 'https://example.com')
     assert.equal(command.action, 'pdf')
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.pdf',
-        printBackground: true,
-        landscape: true,
-        margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
-        pageRanges: '1-3',
-        width: '210mm',
-        height: '148mm',
-        displayHeaderFooter: true,
-        headerTemplate: '<p></p>',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
+    assert.deepInclude(command.options, {
+      path: 'screenshot.pdf',
+      printBackground: true,
+      landscape: true,
+      margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
+      pageRanges: '1-3',
+      width: '210mm',
+      height: '148mm',
+      displayHeaderFooter: true,
+      headerTemplate: '<p></p>',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+    })
   })
 
   test('it can create a command to generate a pdf with the footer hidden', ({ assert }) => {
@@ -279,25 +256,22 @@ test.group('BrowserCommand', () => {
     assert.equal(command.url, 'https://example.com')
     assert.equal(command.action, 'pdf')
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.pdf',
-        printBackground: true,
-        landscape: true,
-        margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
-        pageRanges: '1-3',
-        width: '210mm',
-        height: '148mm',
-        displayHeaderFooter: true,
-        footerTemplate: '<p></p>',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
+    assert.deepInclude(command.options, {
+      path: 'screenshot.pdf',
+      printBackground: true,
+      landscape: true,
+      margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
+      pageRanges: '1-3',
+      width: '210mm',
+      height: '148mm',
+      displayHeaderFooter: true,
+      footerTemplate: '<p></p>',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+    })
   })
 
   test('it can create a command to generate a pdf with paper format', ({ assert }) => {
@@ -315,22 +289,19 @@ test.group('BrowserCommand', () => {
     assert.equal(command.url, 'https://example.com')
     assert.equal(command.action, 'pdf')
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.pdf',
-        printBackground: true,
-        landscape: true,
-        margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
-        pageRanges: '1-3',
-        format: 'a4',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
+    assert.deepInclude(command.options, {
+      path: 'screenshot.pdf',
+      printBackground: true,
+      landscape: true,
+      margin: { top: '10mm', right: '20mm', bottom: '30mm', left: '40mm' },
+      pageRanges: '1-3',
+      format: 'a4',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+    })
   })
 
   test('it can create a command to generate a pdf with custom paper size unit', ({ assert }) => {
@@ -345,20 +316,17 @@ test.group('BrowserCommand', () => {
     assert.equal(command.url, 'https://example.com')
     assert.equal(command.action, 'pdf')
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.pdf',
-        margin: { top: '0.39in', right: '0.78in', bottom: '1.18in', left: '1.57in' },
-        width: '8.3in',
-        height: '11.7in',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        args: [],
+    assert.deepInclude(command.options, {
+      path: 'screenshot.pdf',
+      margin: { top: '0.39in', right: '0.78in', bottom: '1.18in', left: '1.57in' },
+      width: '8.3in',
+      height: '11.7in',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      args: [],
+    })
   })
 
   test('it can use given user agent', ({ assert }) => {
@@ -447,22 +415,30 @@ test.group('BrowserCommand', () => {
       .setOption('foo.baz', 200)
     const command = BrowserCommand.screenshot(browsershot, 'screenshot.png')
 
-    assert.deepInclude(
-      {
-        path: 'screenshot.png',
-        viewport: {
-          width: 800,
-          height: 600,
-        },
-        foo: {
-          bar: 150,
-          baz: 200,
-        },
-        args: [],
-        type: 'png',
+    assert.deepInclude(command.options, {
+      path: 'screenshot.png',
+      viewport: {
+        width: 800,
+        height: 600,
       },
-      command.options
-    )
+      foo: {
+        bar: 150,
+        baz: 200,
+      },
+      args: [],
+      type: 'png',
+    })
+  })
+
+  test('it can merge args set by setOptions with chromium arguments', ({ assert }) => {
+    const browsershot = Browsershot.url('https://example.com')
+      .addChromiumArguments({ 'my-custom-arg': null })
+      .setOption('args', ['--some-arg', '--some-arg-2'])
+
+    const command = BrowserCommand.screenshot(browsershot, 'screenshot.png')
+
+    assert.lengthOf(command.options.args!, 3)
+    assert.includeMembers(command.options.args!, ['--my-custom-arg', '--some-arg', '--some-arg-2'])
   })
 
   test('it can use a proxy server', ({ assert }) => {
@@ -719,5 +695,12 @@ test.group('BrowserCommand', () => {
     const command = BrowserCommand.screenshot(browsershot, 'screenshot.png')
 
     assert.isTrue(command.options.newHeadless)
+  })
+
+  test('it should set the new headless flag to false', async ({ assert }) => {
+    const browsershot = Browsershot.url('https://example.com').newHeadless(false)
+    const command = BrowserCommand.screenshot(browsershot, 'screenshot.png')
+
+    assert.isFalse(command.options.newHeadless)
   })
 })

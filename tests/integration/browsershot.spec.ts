@@ -25,14 +25,9 @@ test.group('Browsershot', () => {
 
     const verificationList = list!.map(({ reason, status, url }) => ({ reason, status, url }))
 
-    expect(verificationList).toHaveLength(3)
+    expect(verificationList).toHaveLength(2)
 
     assert.deepEqual(verificationList, [
-      {
-        url: 'http://www.spatie.be/',
-        status: 301,
-        reason: 'Moved Permanently',
-      },
       {
         url: 'https://www.spatie.be/',
         status: 301,

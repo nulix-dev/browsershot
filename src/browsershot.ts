@@ -46,7 +46,7 @@ export class Browsershot {
 
   protected chromiumArguments: Array<string> = []
 
-  protected _additionalOptions: Partial<BrowserCommandOptions> = {}
+  protected _additionalOptions: Partial<BrowserCommandOptions> = { newHeadless: true }
   protected _postParams: Record<string, string> = {}
 
   constructor(url = '', deviceEmulate = false) {
@@ -85,8 +85,8 @@ export class Browsershot {
     return this.chromiumResult
   }
 
-  getOptionArgs() {
-    const args = this.chromiumArguments
+  getOptionArgs(baseArgs: string[] = []) {
+    const args = this.chromiumArguments.concat(baseArgs)
 
     if (this._noSandbox) {
       args.push('--no-sandbox')
@@ -103,7 +103,7 @@ export class Browsershot {
     const url = this.finalContentsUrl
     const options = this.additionalOptions
 
-    options.args = this.getOptionArgs()
+    options.args = this.getOptionArgs(options.args)
 
     return { url, options }
   }
@@ -310,8 +310,8 @@ export class Browsershot {
     return this.setOption('emulateMedia', media)
   }
 
-  newHeadless() {
-    return this.setOption('newHeadless', true)
+  newHeadless(value: boolean = true) {
+    return this.setOption('newHeadless', value)
   }
 
   setDelay(delayInMilliseconds: number) {

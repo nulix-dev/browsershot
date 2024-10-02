@@ -63,7 +63,7 @@ export class Browser {
 
       if (!browser) {
         browser = await puppet.launch({
-          headless: 'new',
+          headless: request.options.newHeadless ? 'new' : true,
           ignoreHTTPSErrors: request.options.ignoreHttpsErrors,
           executablePath: request.options.executablePath,
           args: request.options.args || [],
