@@ -32,8 +32,7 @@
     "version": "npm run build",
     "prepublishOnly": "npm run build",
     "lint": "eslint . --ext=.ts",
-    "format": "prettier --write .",
-    "prepare": "husky install"
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@adonisjs/eslint-config": "^1.1.8",
